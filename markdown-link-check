@@ -84,6 +84,7 @@ function getInputs() {
                 } else {
                     const stats = fs.statSync(filenameOrUrl);
                     // DEBUG BEGIN
+                    console.log("*** CHUCK filenameOrUrl: ", filenameOrUrl)
                     console.log("*** CHUCK stats: ", stats)
                     // DEBUG END
                     if (stats.isDirectory()){
@@ -216,10 +217,6 @@ async function runMarkdownLinkCheck(markdown, opts) {
 
 async function main() {
     const inputs = getInputs();
-
-    // DEBUG BEGIN
-    console.log("*** CHUCK markdown-link-check START")
-    // DEBUG END
 
     let isOk = true;
     for await (const input of inputs) {

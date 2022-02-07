@@ -112,6 +112,11 @@ module.exports = function markdownLinkCheck(markdown, opts, callback) {
             }
         }
 
+        // DEBUG BEGIN
+        console.log("*** CHUCK link: ", link)
+        console.log("*** CHUCK opts: ", opts)
+        // DEBUG END
+
         linkCheck(link, opts, function (err, result) {
 
             if (opts.showProgressBar) {
