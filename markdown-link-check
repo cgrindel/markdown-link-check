@@ -83,6 +83,9 @@ function getInputs() {
                         }
                 } else {
                     const stats = fs.statSync(filenameOrUrl);
+                    // DEBUG BEGIN
+                    console.log("*** CHUCK stats: ", stats)
+                    // DEBUG END
                     if (stats.isDirectory()){
                         console.error(chalk.red('\nERROR: ' + filenameOrUrl + ' is a directory! Please provide a valid filename as an argument.'));
                         process.exit(1);
@@ -213,6 +216,10 @@ async function runMarkdownLinkCheck(markdown, opts) {
 
 async function main() {
     const inputs = getInputs();
+
+    // DEBUG BEGIN
+    console.log("*** CHUCK markdown-link-check START")
+    // DEBUG END
 
     let isOk = true;
     for await (const input of inputs) {
